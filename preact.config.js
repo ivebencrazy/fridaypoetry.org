@@ -1,5 +1,4 @@
 import path from "path";
-import { union } from "lodash";
 
 /**
  * Function that mutates original webpack config.
@@ -10,10 +9,11 @@ import { union } from "lodash";
  * @param {WebpackConfigHelpers} helpers - object with useful helpers when working with config.
  **/
 export default function (config, env, helpers) {
-  console.log(config);
+  // Start by looking at index.tsx
   config.resolve.alias["preact-cli-entrypoint"] = path.join(__dirname, "src", "index.tsx");
 
-  config.module.loaders = (config.module.loaders || []).concat([
+  // Use typescript
+  config.module.loaders = config.module.loaders.concat([
     {
       test: /\.tsx?$/,
       include: [ path.join(__dirname, "src") ],
@@ -28,22 +28,3 @@ export default function (config, env, helpers) {
 
   return config;
 }
-
-//entry: [ join(context, "source", "index.tsx") ],
-// resolve: {
-// extensions: [ ".js", ".jsx", ".json", ".ts", ".tsx", ".css" ],
-// alias: paths
-// },
-
-// module: {
-// rules: [
-// {
-//   test: /\.tsx?$/,
-//   include: [ paths.source ],
-//   loader: "awesome-typescript-loader"
-// },
-// {
-//   enforce: "pre",
-//   test: /\.tsx?$/,
-//   loader: "source-map-loader"
-// },
