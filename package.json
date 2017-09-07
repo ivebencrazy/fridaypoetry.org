@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "eslint src && preact test",
     "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
     "build": "preact build",
     "serve": "preact build && preact serve",
@@ -13,16 +12,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "eslintConfig": {
-    "extends": "eslint-config-synacor"
-  },
   "devDependencies": {
-    "eslint": "^4.6.1",
-    "eslint-config-synacor": "^1.1.1",
+    "awesome-typescript-loader": "^3.2.3",
     "if-env": "^1.0.0",
     "preact-cli": "^1.4.1",
     "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.1"
+    "stylus-loader": "^3.0.1",
+    "typescript": "^2.5.2"
   },
   "dependencies": {
     "preact": "^8.2.5",
