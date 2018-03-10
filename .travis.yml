@@ -12,6 +12,8 @@ before_install:
   - sh -e /etc/init.d/xvfb start
 
 deploy:
+  edge:
+    branch: v1.8.47
   local_dir: build
   provider: pages
   fqdn: fridaypoetry.org
